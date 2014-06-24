@@ -75,6 +75,7 @@ public class MENU extends javax.swing.JFrame {
         lblFecha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(0, 255, 153));
 
+        lblusuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblusuario.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,35 +92,33 @@ public class MENU extends javax.swing.JFrame {
         JDATOSLayout.setHorizontalGroup(
             JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JDATOSLayout.createSequentialGroup()
-                .addGap(967, 967, 967)
-                .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JDATOSLayout.createSequentialGroup()
+                .addGap(976, 976, 976)
+                .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JDATOSLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
                         .addGap(16, 16, 16)
                         .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JDATOSLayout.createSequentialGroup()
-                        .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addComponent(jLabel3)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         JDATOSLayout.setVerticalGroup(
             JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JDATOSLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2))
-                    .addComponent(jLabel3)
-                    .addComponent(lblusuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addComponent(jLabel3))
+                    .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
         JDATOS.setLayer(lblFecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
         JDATOS.setLayer(lblusuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
