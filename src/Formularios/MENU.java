@@ -12,6 +12,9 @@ import java.util.Calendar;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
+import Imagenes.ImagenFondo;
+import javax.swing.border.Border;
+
 //import javax.swing.JInternalFrame;
 /**
  *
@@ -26,6 +29,7 @@ public class MENU extends javax.swing.JFrame {
     public MENU() {
         initComponents();
         //JDATOS.setBorder(new Imagenfondo());
+        JDATOS.setBorder(  new ImagenFondo());
         mostrarFechaHora();
         setExtendedState(MAXIMIZED_BOTH);
     }
@@ -34,7 +38,7 @@ public class MENU extends javax.swing.JFrame {
         ImageIcon fondo = new ImageIcon(new ImageIcon(getClass().getResource("")).getImage());
         g.drawImage(fondo.getImage(), 0, 0, tam.width,tam.height,null);
     }
-
+         
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,6 +143,7 @@ public class MENU extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem4);
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Cerrarsecion.png"))); // NOI18N
         jMenuItem5.setText("Cerrar secion");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +157,7 @@ public class MENU extends javax.swing.JFrame {
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Knob Smart.png"))); // NOI18N
         jMenu2.setText("MANTENIMIENTO");
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Copia de paste.gif"))); // NOI18N
         jMenu3.setText("FORMULARIOS");
 
         jMenuItem1.setText("presidente");
@@ -424,5 +430,7 @@ public class MENU extends javax.swing.JFrame {
 //private void setContentPane(Imagenfondo desktop) {
   //      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     //}
-
+private void setContentPane(ImagenFondo desktop) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
