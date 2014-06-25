@@ -8,10 +8,15 @@ package Formularios;
 
 import Clacess.Campeonato;
 import Clacess.Jugador;
+import Clacess.JugadorCampeonato;
 import Modelo.CamponatoDAO;
+import Modelo.JugCampDAO;
 import Modelo.JugadorDAO;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,16 +27,20 @@ public class JugadorCamp extends javax.swing.JInternalFrame {
     /**
      * Creates new form JugadorCamp
      */
+    ArrayList<JugadorCampeonato> listaJugCamp = new ArrayList(); 
      ArrayList<Jugador> lista = new ArrayList();
      ArrayList<Campeonato> list = new ArrayList();
     JugadorDAO jd = new JugadorDAO();
     CamponatoDAO  cd =new CamponatoDAO ();
+    JugCampDAO jcd = new JugCampDAO();
+    DefaultTableModel model = new DefaultTableModel(); 
     DefaultComboBoxModel<Object> combomodel = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<Object> combomodelo = new DefaultComboBoxModel<>();
     public JugadorCamp() {
         initComponents();
         cargarComboCampeonato();
         cargarComboJugador();
+        listarJugadorCampeonato();
         setLocation(150, 50);
     }
      final void cargarComboJugador()
@@ -41,6 +50,7 @@ public class JugadorCamp extends javax.swing.JInternalFrame {
         cboJugador.setModel(combomodel);
         for(int i=0; i<lista.size();i++){
         combomodel.addElement(lista.get(i).getNombre());
+        
             }
         cboJugador.setModel(combomodel);
     }
@@ -69,7 +79,7 @@ public class JugadorCamp extends javax.swing.JInternalFrame {
         cboCamponato = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtDatosJugCamp = new javax.swing.JTable();
         txtTR = new javax.swing.JTextField();
         txtTA = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -80,6 +90,8 @@ public class JugadorCamp extends javax.swing.JInternalFrame {
         btnNuevo = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
+        txtIdCampeonato = new javax.swing.JTextField();
+        txtIdJugador = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -87,28 +99,35 @@ public class JugadorCamp extends javax.swing.JInternalFrame {
         setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cboJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboJugadorActionPerformed(evt);
+            }
+        });
         getContentPane().add(cboJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 160, -1));
 
         jLabel1.setText("Jugador:");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
+        cboCamponato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboCamponatoActionPerformed(evt);
+            }
+        });
         getContentPane().add(cboCamponato, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 160, -1));
 
         jLabel2.setText("Campeonato:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtDatosJugCamp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "JUGADOR", "CAMPEONATO", "Nº ROJAS", "Nº AMARILLAS"
+                "JUGADOR", "CAMPEONATO", "Nº ROJAS", "Nº AMARILLAS"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(50);
-        }
+        jScrollPane1.setViewportView(jtDatosJugCamp);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 450, 110));
         getContentPane().add(txtTR, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 120, -1));
@@ -127,6 +146,11 @@ public class JugadorCamp extends javax.swing.JInternalFrame {
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, 40));
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 40));
 
         btnNuevo.setText("Nuevo");
@@ -140,10 +164,86 @@ public class JugadorCamp extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 500, 70));
 
+        txtIdCampeonato.setEnabled(false);
+        getContentPane().add(txtIdCampeonato, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 70, 30));
+
+        txtIdJugador.setEnabled(false);
+        getContentPane().add(txtIdJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 70, 30));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cboJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboJugadorActionPerformed
+        // TODO add your handling code here:
+         String jugadora= cboJugador.getSelectedItem().toString();
+        
+        int id;
+        int x= cboJugador.getSelectedIndex();
+        if(x!=0)
+        {
+            id=jd.retornarIDjugador(jugadora);
+            txtIdJugador.setText(""+id);
+        }
+    }//GEN-LAST:event_cboJugadorActionPerformed
 
+    private void cboCamponatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboCamponatoActionPerformed
+        // TODO add your handling code here:
+        String campeonatoa= cboCamponato.getSelectedItem().toString();
+        
+        int id;
+        int x= cboCamponato.getSelectedIndex();
+        if(x!=0)
+        {
+            id=cd.retornarIDcampeonato(campeonatoa);
+            txtIdCampeonato.setText(""+id);
+        }
+    }//GEN-LAST:event_cboCamponatoActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+         
+        
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+        void listarJugadorCampeonato(){
+    listaJugCamp =jcd.listarCampeonatos();
+    model = (DefaultTableModel) jtDatosJugCamp.getModel();
+        Object[] usu = new Object[4];
+        for(int i=0;i<listaJugCamp.size();i++){
+            usu[0]=listaJugCamp.get(i).getIdjugador();
+            usu[1]=listaJugCamp.get(i).getIdcampeonato();
+            usu[2]=listaJugCamp.get(i).getTarjroja();
+            usu[3]=listaJugCamp.get(i).getTarjamarilla();
+
+            
+            model.addRow(usu);
+               
+        jtDatosJugCamp.setModel(model);
+        } 
+  } 
+        void limpiar(){
+        txtIdCampeonato.setText(null);
+        txtIdJugador.setText(null);
+        txtTA.setText(null);
+        txtTR.setText(null);
+        cboCamponato.setSelectedIndex(0);
+        cboJugador.setSelectedIndex(0);
+        
+        }
+        void updateComponets(){
+    LimpiarTabla(model);
+    listarJugadorCampeonato();
+//    modelocombo.removeAllElements();
+    //cargarCombo();
+    //modelolista.clear();
+    //cargarList();    
+    }
+    void LimpiarTabla(DefaultTableModel modelo){
+        int a =modelo.getRowCount()-1;
+        for(int i=a;i>=0;i--){  
+            modelo.removeRow(i);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEliminar;
@@ -158,7 +258,9 @@ public class JugadorCamp extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtDatosJugCamp;
+    private javax.swing.JTextField txtIdCampeonato;
+    private javax.swing.JTextField txtIdJugador;
     private javax.swing.JTextField txtTA;
     private javax.swing.JTextField txtTR;
     // End of variables declaration//GEN-END:variables

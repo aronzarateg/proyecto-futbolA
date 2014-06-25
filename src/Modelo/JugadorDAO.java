@@ -178,4 +178,23 @@ return res;
             }
         }
      */
+       public int  retornarIDjugador(String cate)
+     {
+         int idcam=0;
+         sql="SELECT *FROM jugador WHERE Nombre='"+cate+"'";
+         
+         try {
+             cx = Conexion.coneccion();
+            st = cx.createStatement();
+            rs = st.executeQuery(sql);
+            //cx.close();
+            while(rs.next())
+            {
+                idcam=rs.getInt("idJugador");
+            }
+         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null,"ERROR"+e);
+         }
+         return idcam;
+     }
 }
