@@ -200,8 +200,22 @@ public class JugadorCamp extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cboCamponatoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
-         
+        /*int idjug = Integer.parseInt(txtIdJugador.getText());
+       int idcamp=Integer.parseInt(txtIdCampeonato.getText());
+        int tr=Integer.parseInt(txtTR.getText());
+        int ta=Integer.parseInt(txtTA.getText());
+        int z = jcd.registrarJugCampe(idjug,idcamp,tr,ta);
+        
+        if(z>0){
+             
+            JOptionPane.showMessageDialog(this, "Exitoso");
+            updateComponets();
+            //listarEquipo();
+            limpiar();
+        }else{
+        JOptionPane.showMessageDialog(this, "No se guardo");
+        }
+         */
         
     }//GEN-LAST:event_btnAgregarActionPerformed
 

@@ -11,6 +11,7 @@ import Conexion.Conexion;
 import Modelo.Usuarios;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -41,12 +43,16 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
         initComponents();
         mostrarFechaHora();
         setLocation(400, 100);
-       //listarUser();
-        mostrarDatos("");
+      //listarUser();
+       mostrarDatos("");
         txtCOD.setEnabled(false);
         btnModificar.setEnabled(false);
-       
+        btnEliminar.setEnabled(false);
+        btnAgregar.setEnabled(false);
+        habilitar();
+        
     }
+    
 
     void mostrarDatos(String valor)
     {
@@ -79,6 +85,7 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
             Logger.getLogger(FrmUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -108,7 +115,7 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
         btnSalir = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
-        btnMoD = new javax.swing.JButton();
+        btnMostrarDatos = new javax.swing.JButton();
 
         jModificar.setText("MODIFICAR");
         jModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +147,8 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 160, -1));
+
+        txtCOD.setEnabled(false);
         jPanel1.add(txtCOD, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 110, 30));
 
         jLabel1.setText("CODIGO:");
@@ -250,13 +259,13 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
         getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
         getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 230, -1));
 
-        btnMoD.setText("MOSTRAR DATOS");
-        btnMoD.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrarDatos.setText("MOSTRAR DATOS");
+        btnMostrarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMoDActionPerformed(evt);
+                btnMostrarDatosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
+        getContentPane().add(btnMostrarDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -331,10 +340,10 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnMoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoDActionPerformed
+    private void btnMostrarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarDatosActionPerformed
         mostrarDatos("");
         txtBuscar.setText(null);
-    }//GEN-LAST:event_btnMoDActionPerformed
+    }//GEN-LAST:event_btnMostrarDatosActionPerformed
 
     private void jModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jModificarActionPerformed
         btnModificar.setEnabled(true); 
@@ -350,52 +359,85 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
         {
             JOptionPane.showMessageDialog(null,"NO SELECCIONO FILA");
         }
+        
+        
     }//GEN-LAST:event_jModificarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-       
-        try {
-            PreparedStatement pst= cn.prepareStatement("UPDATE  usuario  SET usuario='"+txtUsuario.getText()+"',clave='"+txtContra.getText()+"'WHERE idUsuario='"+txtCOD.getText()+"'");
-            pst.executeUpdate();
-            mostrarDatos("");
-        } catch (SQLException ex) {
-            Logger.getLogger(FrmUsuario.class.getName()).log(Level.SEVERE, null, ex);
+     
+        
+        int confirmar=JOptionPane.showConfirmDialog(null, "Esta seguro que desea Usuario Los datos? "); 
+        if(JOptionPane.OK_OPTION==confirmar) {
+            try {
+                PreparedStatement pst= cn.prepareStatement("UPDATE  usuario  SET usuario='"+txtUsuario.getText()+"',clave='"+txtContra.getText()+"'WHERE idUsuario='"+txtCOD.getText()+"'");
+                pst.executeUpdate();
+                mostrarDatos("");
+                JOptionPane.showMessageDialog(null, "Usuario MODIFICADO!");
+                txtCOD.setText(null);
+                txtBuscar.setText(null);
+                txtContra.setText(null);
+                txtUsuario.setText(null);
+            } catch (SQLException ex) {
+                Logger.getLogger(FrmUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+               JOptionPane.showMessageDialog(null, "Datos del Usuario no se ha MODIFICADO!");      
         }
-      /* 
+        
+      /*
          int fil = jDatosUs.getSelectedRow();
         if(fil<0){
-            JOptionPane.showMessageDialog(null, "Seleccionar El Usuario a MODIFICAR!");
+            JOptionPane.showMessageDialog(null, "Seleccionar El Uusario a MODIFICAR!");
         }else{
-            int confirmar=JOptionPane.showConfirmDialog(null, "Esta seguro que desea MODIFICAR el Usuario? "); 
+            int confirmar=JOptionPane.showConfirmDialog(null, "Esta seguro que desea Usuario Los datos? "); 
             if(JOptionPane.OK_OPTION==confirmar) {
                    int id = Integer.parseInt(txtCOD.getText());
-                    String us = txtUsuario.getText();
-                    String cl = txtContra.getText();//new String(txtclave.getPassword());
-                    int x = ad.modificarUsuario(id, us, cl);
+                   
+                    String usuario = txtUsuario.getText();
+                    String clave = txtContra.getText();//new String(txtclave.getPassword());
+                    
+                    int x = ad.modificarUsuario(id,usuario,clave);
                     if(x==1){
                         JOptionPane.showMessageDialog(null, "Usuario MODIFICADO!");
                         updateComponets();
                         limpiar();
+                        btnEliminar.setEnabled(false);
+                        btnModificar.setEnabled(false);
+                        btnAgregar.setEnabled(false);
+                        inabilitar();
                     }else{
-                        JOptionPane.showMessageDialog(null, "Usuario no se ha MODIFICADO!");      
+                        JOptionPane.showMessageDialog(null, "Datos del Usuario no se ha MODIFICADO!");      
                     }                   
-            }        
-        }
-        */ 
+            }  
         
+        }
+       
+         */
         
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
        int fila = jDatosUs.getSelectedRow();
         String cod="";
+        
         cod=jDatosUs.getValueAt(fila,0).toString();
-        try {
-            PreparedStatement pst= cn.prepareStatement("DELETE FROM usuario WHERE idUsuario='"+cod+"'");
-            pst.executeUpdate();
-            mostrarDatos("");
-        } catch (Exception e) {
-        }
+         int confirmar=JOptionPane.showConfirmDialog(null, "Esta seguro que desea ELIMINAR el Usuario? "); 
+            if(JOptionPane.OK_OPTION==confirmar) {
+                try {
+                    PreparedStatement pst= cn.prepareStatement("DELETE FROM usuario WHERE idUsuario='"+cod+"'");
+                    pst.executeUpdate();
+                    mostrarDatos("");
+                    JOptionPane.showMessageDialog(null, "Usuario ELIMINADO!");
+                } catch (Exception e) {
+                }
+            }else{
+                        JOptionPane.showMessageDialog(null, "Usuario no ELIMINADO!");      
+                    }
+       txtCOD.setText(null);
+       txtBuscar.setText(null);
+       txtContra.setText(null);
+       txtUsuario.setText(null);
+       
               
           /*int fila = jDatosUs.getSelectedRow();
         if(fila<0){
@@ -424,6 +466,10 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
         txtUsuario.setText(null);
         txtContra.setText(null);
         txtBuscar.setText(null);
+        btnAgregar.setEnabled(true);
+        btnModificar.setEnabled(false);
+        btnEliminar.setEnabled(true);
+        inabilitar();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
@@ -440,18 +486,16 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtContraKeyPressed
 
     private void jDatosUsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDatosUsMouseClicked
-       /*if(evt.getButton()==1){
-            int fila = 
-                    jDatosUs.getSelectedRow();
-            int celda = (int) jDatosUs.getValueAt(fila, 0);
-            lista = ad.listarUsuariod(celda);
-            for(int i=0;i<lista.size();i++){
-                txtCOD.setText(""+lista.get(i).getIdusuario());
-                txtUsuario.setText(lista.get(i).getUsuario());
-                txtContra.setText(lista.get(i).getClave());
-            }
-        }
-               */
+       int fila=jDatosUs.rowAtPoint(evt.getPoint());
+        txtCOD.setText(jDatosUs.getValueAt(fila,0).toString());
+        //txtIdEquipo.setText(jtDatos.getValueAt(fila,1).toString());
+        txtUsuario.setText(jDatosUs.getValueAt(fila,1).toString());
+        txtContra.setText(jDatosUs.getValueAt(fila,2).toString());
+        
+        btnAgregar.setEnabled(false);
+        btnEliminar.setEnabled(true);
+        btnModificar.setEnabled(true);
+               
                
     }//GEN-LAST:event_jDatosUsMouseClicked
     void limpiar(){
@@ -501,13 +545,26 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
 String fec= Cal.get(Cal.DATE)+"/"+(Cal.get(Cal.MONTH)+1)+"/"+Cal.get(Cal.YEAR)+" "+Cal.get(Cal.HOUR_OF_DAY)+":"+Cal.get(Cal.MINUTE)+":"+Cal.get(Cal.SECOND);
    lblFecha.setText(fec);
 }
-
+void habilitar()
+{
+    txtBuscar.setEnabled(false);
+    txtCOD.setEnabled(false);
+    txtContra.setEnabled(false);
+    txtUsuario.setEnabled(false);
+}
+void inabilitar()
+{
+    txtBuscar.setEnabled(true);
+    //txtCOD.setEnabled(true);
+    txtContra.setEnabled(true);
+    txtUsuario.setEnabled(true);
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnMoD;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnMostrarDatos;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSalir;
     private javax.swing.JTable jDatosUs;

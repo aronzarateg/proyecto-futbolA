@@ -100,8 +100,8 @@ public class UsuarioDAO {
           }
         return lista;
     }
-    public int modificarUsuario(int idu, String usuario, String clave){//ingresar tres valores y comprarlos con el id
-    sql="UPDATE Usuario set usuario='"+usuario+"', clave='"+clave+"' WHERE idUsuario='"+idu+"'";
+    public int modificarUsuario(int idusuario, String usuario, String clave ){//ingresar tres valores y comprarlos con el id
+    sql="UPDATE usuario set  usuario='"+usuario+"',clave='"+clave+"' WHERE idUsuario='"+idusuario+"'";
        
         try {
             cx = Conexion.coneccion();
