@@ -7,15 +7,20 @@
 package Formularios;
 
 import Conexion.Conexion;
+import Imagenes.ImgenFondoLogueo;
 import Modelo.UsuarioDAO;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import javax.swing.border.Border;
 
 /**
  *
@@ -38,10 +43,15 @@ public class Logueo extends javax.swing.JFrame {
      UsuarioDAO ud= new UsuarioDAO();
     public Logueo() {
         initComponents();
+        //jlogueodeskotpane.setBorder(   new ImgenFondoLogueo());
         txtUs.requestFocus();
         setLocationRelativeTo(null);
     }
-
+     public void imagenDP(Graphics g){
+        Dimension tam = getSize();
+        ImageIcon fondo = new ImageIcon(new ImageIcon(getClass().getResource("")).getImage());
+        g.drawImage(fondo.getImage(), 0, 0, tam.width,tam.height,null);
+    }
     void acceder(String usuario,String clave)
     {
         sql="SELECT  * FROM  usuario WHERE  usuario='"+usuario+"' AND clave='"+clave+"'";
@@ -61,6 +71,7 @@ public class Logueo extends javax.swing.JFrame {
         
         
     }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,7 +84,7 @@ public class Logueo extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jlogueodeskotpane = new javax.swing.JDesktopPane();
         btnIr = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         JPas = new javax.swing.JPasswordField();
@@ -92,8 +103,6 @@ public class Logueo extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/crnMA.gif"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 310, 248));
 
-        jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         btnIr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/forward.gif"))); // NOI18N
         btnIr.setText("IR");
         btnIr.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +110,6 @@ public class Logueo extends javax.swing.JFrame {
                 btnIrActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(btnIr, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 80, -1));
 
         jButton1.setText("SALIR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -109,17 +117,59 @@ public class Logueo extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jDesktopPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, -1));
-        jDesktopPane1.add(JPas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 210, -1));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("PASSWORD:");
-        jDesktopPane1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, -1, -1));
-        jDesktopPane1.add(txtUs, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 210, -1));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("USUARIO:");
-        jDesktopPane1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
 
-        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 450));
+        javax.swing.GroupLayout jlogueodeskotpaneLayout = new javax.swing.GroupLayout(jlogueodeskotpane);
+        jlogueodeskotpane.setLayout(jlogueodeskotpaneLayout);
+        jlogueodeskotpaneLayout.setHorizontalGroup(
+            jlogueodeskotpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jlogueodeskotpaneLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel3))
+            .addGroup(jlogueodeskotpaneLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(txtUs, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jlogueodeskotpaneLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel4))
+            .addGroup(jlogueodeskotpaneLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(JPas, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jlogueodeskotpaneLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(btnIr, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jButton1))
+        );
+        jlogueodeskotpaneLayout.setVerticalGroup(
+            jlogueodeskotpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jlogueodeskotpaneLayout.createSequentialGroup()
+                .addGap(260, 260, 260)
+                .addComponent(jLabel3)
+                .addGap(6, 6, 6)
+                .addComponent(txtUs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel4)
+                .addGap(6, 6, 6)
+                .addComponent(JPas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addGroup(jlogueodeskotpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnIr)
+                    .addComponent(jButton1)))
+        );
+        jlogueodeskotpane.setLayer(btnIr, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jlogueodeskotpane.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jlogueodeskotpane.setLayer(JPas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jlogueodeskotpane.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jlogueodeskotpane.setLayer(txtUs, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jlogueodeskotpane.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        getContentPane().add(jlogueodeskotpane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,12 +298,14 @@ public class Logueo extends javax.swing.JFrame {
     private javax.swing.JPasswordField JPas;
     private javax.swing.JButton btnIr;
     private javax.swing.JButton jButton1;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JDesktopPane jlogueodeskotpane;
     private javax.swing.JTextField txtUs;
     // End of variables declaration//GEN-END:variables
+
+
 }

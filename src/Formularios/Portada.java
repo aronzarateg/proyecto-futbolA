@@ -6,6 +6,11 @@
 
 package Formularios;
 
+import Imagenes.ImgenFondoPortada;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Aron
@@ -17,7 +22,13 @@ public class Portada extends javax.swing.JFrame {
      */
     public Portada() {
         initComponents();
+        jDesktopPane1.setBorder(  new ImgenFondoPortada());
         setExtendedState(MAXIMIZED_BOTH);
+    }
+    public void imagenDP(Graphics g){
+        Dimension tam = getSize();
+        ImageIcon fondo = new ImageIcon(new ImageIcon(getClass().getResource("")).getImage());
+        g.drawImage(fondo.getImage(), 0, 0, tam.width,tam.height,null);
     }
 
     /**
@@ -33,7 +44,6 @@ public class Portada extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JButton();
         jDayChooser2 = new com.toedter.calendar.JDayChooser();
         btnSalir = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,9 +68,6 @@ public class Portada extends javax.swing.JFrame {
             }
         });
         jDesktopPane1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 580, 100, 50));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/get-in-the-game-series_power-soccer-.jpg"))); // NOI18N
-        jDesktopPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,6 +133,5 @@ public class Portada extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private com.toedter.calendar.JDayChooser jDayChooser2;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

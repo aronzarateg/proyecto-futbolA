@@ -74,7 +74,7 @@ Connection conex;
         });
         getContentPane().add(btnGENREP, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
-        Equipo.setText("jugador:");
+        Equipo.setText("EQUIPO:");
         getContentPane().add(Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         getContentPane().add(cboEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 130, -1));

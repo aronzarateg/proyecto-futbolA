@@ -18,13 +18,12 @@ import javax.swing.border.Border;
  *
  * @author aron
  */
-public class ImagenFondo implements Border
-{
-    public BufferedImage back;
+public class ImgenFondoPortada implements Border{
+   public BufferedImage back;
  
-    public ImagenFondo(){
+    public ImgenFondoPortada(){
         try {
-            URL imagePath = new URL(getClass().getResource("/Imagenes/adidas.jpg").toString());
+            URL imagePath = new URL(getClass().getResource("/Imagenes/principal.jpg").toString());
             back = ImageIO.read(imagePath);
         } catch (Exception ex) {            
         }
@@ -43,5 +42,4 @@ public class ImagenFondo implements Border
     public boolean isBorderOpaque() {
         return false;
     }
-    
 }

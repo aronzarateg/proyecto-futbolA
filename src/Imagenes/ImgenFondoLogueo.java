@@ -12,19 +12,17 @@ import java.awt.Insets;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import javax.imageio.ImageIO;
-import javax.swing.border.Border;
 
 /**
  *
  * @author aron
  */
-public class ImagenFondo implements Border
-{
+public class ImgenFondoLogueo {
     public BufferedImage back;
  
-    public ImagenFondo(){
+    public ImgenFondoLogueo(){
         try {
-            URL imagePath = new URL(getClass().getResource("/Imagenes/adidas.jpg").toString());
+            URL imagePath = new URL(getClass().getResource("/Imagenes/mario.jpg").toString());
             back = ImageIO.read(imagePath);
         } catch (Exception ex) {            
         }
@@ -43,5 +41,4 @@ public class ImagenFondo implements Border
     public boolean isBorderOpaque() {
         return false;
     }
-    
 }

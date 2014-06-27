@@ -49,6 +49,11 @@ public class frmConsultaPartido extends javax.swing.JInternalFrame {
         cboPartido = new javax.swing.JComboBox();
         btnGenRep = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jLabel1.setText("Partidos:");
 
         btnGenRep.setText("Generar Reportes");
