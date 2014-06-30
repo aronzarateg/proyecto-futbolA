@@ -7,14 +7,20 @@
 package Formularios;
 
 import Clacess.Equipo;
+import Clacess.Reportes;
 import Conexion.Conexion;
 import Modelo.EquipoDAO;
+import java.awt.HeadlessException;
+import java.io.File;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -59,6 +65,7 @@ public class frmEquipoInforme extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         cboequipo = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        btnPDF = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -86,6 +93,14 @@ public class frmEquipoInforme extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
+
+        btnPDF.setText("Esportar PDF");
+        btnPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPDFActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 110, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 350, 230));
 
@@ -115,8 +130,40 @@ public class frmEquipoInforme extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
+        // TODO add your handling code here:
+        Reportes re = new Reportes();
+        String ruta="ReportesPP\\report4.jasper";
+       
+        //ABRIR CUADRO DE DIALOGO PARA GUARDAR EL ARCHIVO         
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("todos los archivos *.PDF", "pdf", "PDF"));//filtro para ver solo archivos .pdf
+        int seleccion = fileChooser.showSaveDialog(null);
+        try {
+            if (seleccion == JFileChooser.APPROVE_OPTION) {//comprueba si ha presionado el boton de aceptar
+                File JFC = fileChooser.getSelectedFile();
+                String PATH = JFC.getAbsolutePath();//obtenemos la direccion del archivo + el nombre a guardar
+                try (PrintWriter printwriter = new PrintWriter(JFC)) {
+                    printwriter.print(ruta);
+                }
+                re.reportespdf(ruta, PATH);//mandamos como parametros la ruta del archivo a compilar y el nombre y ruta donde se guardaran    
+                //comprobamos si a la hora de guardar obtuvo la extension y si no se la asignamos
+                if (!(PATH.endsWith(".pdf"))) {
+                    File temp = new File(PATH + ".pdf");
+                    JFC.renameTo(temp);//renombramos el archivo
+                }
+                JOptionPane.showMessageDialog(null, "Esto puede tardar unos segundos,espere porfavor", "Estamos Generando el Reporte", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Documento Exportado Exitosamente!", "Guardado exitoso!", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al Exportar el archivo!", "Oops! Error", JOptionPane.ERROR_MESSAGE);
+        }
+       
+    }//GEN-LAST:event_btnPDFActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPDF;
     private javax.swing.JComboBox cboequipo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
