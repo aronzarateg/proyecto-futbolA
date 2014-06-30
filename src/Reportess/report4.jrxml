@@ -1,50 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b22a9b8a-d1e1-4ea6-81a5-009b354286d8">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6edbdb43-74bd-4ecb-b060-2c776a4f90fd">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="dist" class="java.lang.String">
+	<parameter name="equipo" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-     partido.`Gol_Casa` AS partido_Gol_Casa,
-     partido.`Gol_Visita` AS partido_Gol_Visita,
-     partido.`Fecha_partido` AS partido_Fecha_partido,
      equipo.`Nombre_equipo` AS equipo_Nombre_equipo,
      campeonato.`Nombre_campeonato` AS campeonato_Nombre_campeonato,
-     partido.`idPartido` AS partido_idPartido
+     presidente.`Nombre_pres` AS presidente_Nombre_pres,
+     presidente.`Ap_presidente` AS presidente_Ap_presidente,
+     presidente.`Telefono` AS presidente_Telefono
 FROM
-     `partido` partido,
      `equipo` equipo,
-     `campeonato` campeonato
+     `campeonato` campeonato,
+     `presidente` presidente
 WHERE
-partido.`idequipo`=equipo.`idEquipo`
+ presidente.`idequipo`=equipo.`idequipo`
 AND
-partido.`Fecha_partido`=$P{dist}]]>
+equipo.`nombre_equipo`=$P{equipo}]]>
 	</queryString>
-	<field name="partido_Gol_Casa" class="java.lang.Long"/>
-	<field name="partido_Gol_Visita" class="java.lang.Long"/>
-	<field name="partido_Fecha_partido" class="java.sql.Date"/>
 	<field name="equipo_Nombre_equipo" class="java.lang.String"/>
 	<field name="campeonato_Nombre_campeonato" class="java.lang.String"/>
-	<field name="partido_idPartido" class="java.lang.Long"/>
+	<field name="presidente_Nombre_pres" class="java.lang.String"/>
+	<field name="presidente_Ap_presidente" class="java.lang.String"/>
+	<field name="presidente_Telefono" class="java.lang.String"/>
 	<background>
 		<band/>
 	</background>
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement uuid="f99c7d1f-fdd0-4378-999b-2f58c786b913" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
+				<reportElement uuid="367f8404-3032-4672-9c4d-c7eb8afc1464" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
 				<staticText>
-					<reportElement uuid="4e9e1f72-2875-4878-ab8b-7e724c56c42a" x="20" y="20" width="234" height="43" forecolor="#FFFFFF"/>
+					<reportElement uuid="d9bf7669-af29-418c-8c53-fcee34271b10" x="20" y="20" width="234" height="43" forecolor="#FFFFFF"/>
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
 					<text><![CDATA[TITLE]]></text>
 				</staticText>
 				<staticText>
-					<reportElement uuid="5a18b4d0-3174-4967-8375-809912d8df46" x="395" y="43" width="180" height="20" forecolor="#FFFFFF"/>
+					<reportElement uuid="2b65ee85-b623-474b-96d6-54852fc70d9b" x="395" y="43" width="180" height="20" forecolor="#FFFFFF"/>
 					<textElement textAlignment="Right">
 						<font size="14" isBold="false"/>
 					</textElement>
@@ -59,98 +57,84 @@ partido.`Fecha_partido`=$P{dist}]]>
 	<columnHeader>
 		<band height="21">
 			<line>
-				<reportElement uuid="f20471b0-192b-47bd-9c95-d9c3bd7319d5" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+				<reportElement uuid="d4c877e5-45d0-44c9-ae8a-aae296bebfb9" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
 			</line>
 			<staticText>
-				<reportElement uuid="e569c1ec-a49f-49c8-9c69-56024e04698a" mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[partido_idPartido]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="aa4c0814-bebc-44cc-bc89-b1752fb52dd5" mode="Opaque" x="92" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="19e26232-f8d8-4d7d-95d1-442fe0338aeb" mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[equipo_Nombre_equipo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="fd41dcd2-5920-485a-b282-ca44d673ec9b" mode="Opaque" x="184" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="998611c0-d0a8-4575-a1e7-73694b1bab75" mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[campeonato_Nombre_campeonato]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="5c153e16-4385-4e86-8a5a-7a5ebf4ee240" mode="Opaque" x="276" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="d4d0de48-6f6e-4543-956e-7835fa2b4098" mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[partido_Gol_Casa]]></text>
+				<text><![CDATA[presidente_Nombre_pres]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="3b709b78-e397-404c-a11e-87ac7f5c0794" mode="Opaque" x="368" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="79dc817c-80d1-44ff-8cc5-a300ee222ffa" mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[partido_Gol_Visita]]></text>
+				<text><![CDATA[presidente_Ap_presidente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="6739ac0e-ef1b-4178-a8df-c0934cc19f99" mode="Opaque" x="460" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="982c9e8c-b849-4659-b7e9-48707c580067" mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[partido_Fecha_partido]]></text>
+				<text><![CDATA[presidente_Telefono]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="20">
 			<line>
-				<reportElement uuid="f4060fbe-f7b8-4349-bd6d-1ed449ae4a65" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+				<reportElement uuid="cde228ae-69c5-4aca-837f-b4c608d1ff7f" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
 			</line>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="9e2130cc-ac0d-40cf-bde5-dcd7c927745e" x="0" y="0" width="92" height="20"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{partido_idPartido}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement uuid="63c0ceb2-1a1c-4e3e-8c06-606c3a671c5a" x="92" y="0" width="92" height="20"/>
+				<reportElement uuid="a56a7fb7-578f-4ae7-9661-7c4badb1293e" x="0" y="0" width="111" height="20"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{equipo_Nombre_equipo}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="dbe29317-502d-4bb0-bfeb-27621532c5c0" x="184" y="0" width="92" height="20"/>
+				<reportElement uuid="72c69cb9-089b-4736-8994-94177ef36513" x="111" y="0" width="111" height="20"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{campeonato_Nombre_campeonato}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="7abe7984-2b15-405d-bc71-14f551272482" x="276" y="0" width="92" height="20"/>
+				<reportElement uuid="a472cd9a-b183-434a-bc3d-bd5b741b2ed5" x="222" y="0" width="111" height="20"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{partido_Gol_Casa}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{presidente_Nombre_pres}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="b0ab2471-8872-4239-afa0-b340f90e2094" x="368" y="0" width="92" height="20"/>
+				<reportElement uuid="7d3d74c5-a81d-4f83-882b-f55319d82e9a" x="333" y="0" width="111" height="20"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{partido_Gol_Visita}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{presidente_Ap_presidente}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="c7a21ceb-ed8e-422a-92b5-7bf1d1370eb7" x="460" y="0" width="92" height="20"/>
+				<reportElement uuid="db114511-7251-4f81-99cf-1b45fee93210" x="444" y="0" width="111" height="20"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{partido_Fecha_partido}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{presidente_Telefono}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
@@ -160,17 +144,17 @@ partido.`Fecha_partido`=$P{dist}]]>
 	<pageFooter>
 		<band height="17">
 			<textField>
-				<reportElement uuid="82feccbc-a1f7-469d-b20b-d08d200caf65" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
+				<reportElement uuid="6244b511-83b7-4494-a9f0-ffdee29c783e" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement uuid="6225fbf9-c6e9-4ebe-beb5-9781f5205f92" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
+				<reportElement uuid="e1fd7f1d-e9a4-433c-ab4e-57ee3dea5d7c" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement uuid="25d82201-e5c8-4767-bcb5-3eda474104d0" x="0" y="4" width="100" height="13"/>
+				<reportElement uuid="43474bb4-0a83-4343-ae30-0dcd5d39a3af" x="0" y="4" width="100" height="13"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>

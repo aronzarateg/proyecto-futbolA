@@ -70,6 +70,7 @@ public class MENU extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -244,6 +245,14 @@ public class MENU extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem8);
 
+        jMenuItem9.setText("Consulta Equipo -Campeonato");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem9);
+
         jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
@@ -349,6 +358,13 @@ public class MENU extends javax.swing.JFrame {
         JDATOS.add(l);
         l.show();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        frmEquipoInforme l = new frmEquipoInforme();
+        JDATOS.add(l);
+        l.show();
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
         /* public void CentrarVentana(JInternalFrame internalframe){
         int x = (JDATOS.getWidth() / 2) - internalframe.getWidth() / 2;
         int y = (JDATOS.getHeight()/2)-(internalframe.getHeight()/2);
@@ -423,6 +439,7 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jitemEquipo;
     private javax.swing.JLabel lblFecha;
     public static javax.swing.JLabel lblusuario;
