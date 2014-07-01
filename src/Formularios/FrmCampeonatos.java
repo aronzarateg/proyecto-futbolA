@@ -467,7 +467,7 @@ Connection conex;
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
         // TODO add your handling code here:
-        
+         mostrarDatos(txtBuscar.getText());
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     /**
