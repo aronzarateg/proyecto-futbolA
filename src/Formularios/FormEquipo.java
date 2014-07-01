@@ -55,6 +55,8 @@ public class FormEquipo extends javax.swing.JInternalFrame {
         btnEliminar.setEnabled(false);
         btnModificar.setEnabled(false);
         btnAgregar.setEnabled(false);
+        btnBuscar.setEnabled(false);
+        txtBuscar.setEnabled(false);
         cargarCampeonato();
         inabilitar();
     }
@@ -130,8 +132,17 @@ public class FormEquipo extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtNombreKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
         });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 230, -1));
+
+        txtN_Estadio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtN_EstadioKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtN_Estadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 230, 30));
 
         jLabel5.setText("Fecha  Fundacion:");
@@ -251,6 +262,11 @@ public class FormEquipo extends javax.swing.JInternalFrame {
         btnEliminar.setEnabled(false);
         btnModificar.setEnabled(false);
         btnAgregar.setEnabled(true);
+        txtCiudad.setText(null);
+        txtCodigo.setText(null);
+        txtN_Estadio.setText(null);
+        txtNombre.setText(null);
+        txtidCampeonato.setText(null);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
@@ -406,6 +422,18 @@ public class FormEquipo extends javax.swing.JInternalFrame {
                 */
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+        char a=evt.getKeyChar();
+        if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtN_EstadioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtN_EstadioKeyTyped
+        // TODO add your handling code here:
+        char a=evt.getKeyChar();
+        if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
+    }//GEN-LAST:event_txtN_EstadioKeyTyped
+
     void listarEquipo(){
     listaequipo =ed.listarEquipo();
     model = (DefaultTableModel) jtDatos.getModel();
@@ -450,7 +478,7 @@ void abilitar()
         txtBuscar.setEnabled(true);
         txtCiudad.setEnabled(true);
         cboEquipo.setEnabled(true); 
-        jFFundacion.setEnabled(true);
+        //jFFundacion.setEnabled(true);
 }
 void updateComponets(){
     LimpiarTabla(model);

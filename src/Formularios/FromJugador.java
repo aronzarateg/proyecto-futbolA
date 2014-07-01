@@ -40,6 +40,8 @@ public class FromJugador extends javax.swing.JInternalFrame {
         btnAgregar.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnModificar.setEnabled(false);
+        btnBuscar.setEnabled(false);
+        txtBuscar.setEnabled(false);
         inabilitar();
         this.jdFN.setEnabled(false);
         this.jdFN.getCalendarButton().setEnabled(true);
@@ -281,6 +283,12 @@ public class FromJugador extends javax.swing.JInternalFrame {
 
         jdFN.setDateFormatString("yyyy-MM-dd");
         jPanel1.add(jdFN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 230, 30));
+
+        txtPoscision.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPoscisionKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPoscision, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 230, 30));
 
         txtidEquipo.setEnabled(false);
@@ -527,6 +535,12 @@ public class FromJugador extends javax.swing.JInternalFrame {
         if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
     }//GEN-LAST:event_txtMaterno1KeyTyped
 
+    private void txtPoscisionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPoscisionKeyTyped
+        // TODO add your handling code here:
+         char a=evt.getKeyChar();
+        if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
+    }//GEN-LAST:event_txtPoscisionKeyTyped
+
 void listarJugador(){
     lista =jd.listarJugador();
     model = (DefaultTableModel) jtDatos.getModel();
@@ -586,7 +600,7 @@ void abilitar()
     txtCodigo.setEnabled(false);
         txtNombre.setEnabled(true);
         txtPaterno.setEnabled(true);
-        txtBuscar.setEnabled(true);
+        //txtBuscar.setEnabled(true);
         txtMaterno1.setEnabled(true);
         cboequipo.setEnabled(true); 
         txtPoscision.setEnabled(true);
