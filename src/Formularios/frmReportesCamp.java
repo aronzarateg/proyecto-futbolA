@@ -35,6 +35,7 @@ Connection conex;
     DefaultComboBoxModel<Object> combomodel = new DefaultComboBoxModel<>();
     public frmReportesCamp() {
         initComponents();
+        setLocation(200, 100);
         cargarCombo();
     }
     final void cargarCombo()

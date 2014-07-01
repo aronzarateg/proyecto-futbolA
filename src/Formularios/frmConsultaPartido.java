@@ -24,6 +24,7 @@ public class frmConsultaPartido extends javax.swing.JInternalFrame {
     DefaultComboBoxModel<Object> combomodel = new DefaultComboBoxModel<>();
     public frmConsultaPartido() {
         initComponents();
+          setLocation(200, 100);
         cargarCombo();
     }
         final void cargarCombo()

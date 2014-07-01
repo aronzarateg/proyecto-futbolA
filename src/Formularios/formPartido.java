@@ -169,8 +169,8 @@ DefaultComboBoxModel<Object> modelocombo = new DefaultComboBoxModel<>();
         jLabel2.setText("CODIGO:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        jLabel4.setText("EQUIPO:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        jLabel4.setText("Equipo Casa :");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         jLabel7.setText("CAMPEONATO:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
@@ -202,7 +202,7 @@ DefaultComboBoxModel<Object> modelocombo = new DefaultComboBoxModel<>();
         jPanel1.add(jFP, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 160, -1));
 
         jLabel5.setText("Fecha_Partido:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         jLabel3.setText("Gol_Visita:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
@@ -224,7 +224,7 @@ DefaultComboBoxModel<Object> modelocombo = new DefaultComboBoxModel<>();
         jLabel6.setText("Gol_Casa:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 390, 250));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 450, 260));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Botones"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

@@ -35,18 +35,11 @@ equipo.`nombre_equipo`=$P{equipo}]]>
 			<frame>
 				<reportElement uuid="367f8404-3032-4672-9c4d-c7eb8afc1464" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
 				<staticText>
-					<reportElement uuid="d9bf7669-af29-418c-8c53-fcee34271b10" x="20" y="20" width="234" height="43" forecolor="#FFFFFF"/>
+					<reportElement uuid="d9bf7669-af29-418c-8c53-fcee34271b10" x="20" y="20" width="356" height="66" forecolor="#FFFFFF"/>
 					<textElement>
-						<font size="34" isBold="true"/>
+						<font size="26" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TITLE]]></text>
-				</staticText>
-				<staticText>
-					<reportElement uuid="2b65ee85-b623-474b-96d6-54852fc70d9b" x="395" y="43" width="180" height="20" forecolor="#FFFFFF"/>
-					<textElement textAlignment="Right">
-						<font size="14" isBold="false"/>
-					</textElement>
-					<text><![CDATA[Add a description here]]></text>
+					<text><![CDATA[Equipo - Campeonato]]></text>
 				</staticText>
 			</frame>
 		</band>

@@ -56,35 +56,35 @@ equipo.`Nombre_equipo`=$P{dist}]]>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Equipo]]></text>
+				<text><![CDATA[equipo_Nombre_equipo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="6aa42791-b7d5-4bc4-8577-52356b4f4ae4" mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Jugador]]></text>
+				<text><![CDATA[jugador_Nombre]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="d935b301-92bb-4374-b4f2-735829c5e72b" mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Apellido P.]]></text>
+				<text><![CDATA[jugador_ap_Jugador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="54182787-7a4a-466f-a0aa-76a081061f23" mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Apellido M.]]></text>
+				<text><![CDATA[jugador_am_Jugador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="10dc8168-f58a-40e6-aaa3-d2911afcfc84" mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Posicion]]></text>
+				<text><![CDATA[jugador_Posicion]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

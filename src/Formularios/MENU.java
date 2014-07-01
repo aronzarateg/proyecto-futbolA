@@ -51,9 +51,9 @@ public class MENU extends javax.swing.JFrame {
         JDATOS = new javax.swing.JDesktopPane();
         lblFecha = new javax.swing.JLabel();
         lblusuario = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -84,14 +84,14 @@ public class MENU extends javax.swing.JFrame {
         lblusuario.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblusuario.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("USUARIO:");
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblUsuario.setText("USUARIO:");
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("<<");
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText(">>");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText(">>");
 
         javax.swing.GroupLayout JDATOSLayout = new javax.swing.GroupLayout(JDATOS);
         JDATOS.setLayout(JDATOSLayout);
@@ -99,38 +99,40 @@ public class MENU extends javax.swing.JFrame {
             JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JDATOSLayout.createSequentialGroup()
                 .addGap(976, 976, 976)
-                .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(JDATOSLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addGap(16, 16, 16)
-                        .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addComponent(lblUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(93, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JDATOSLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147))
         );
         JDATOSLayout.setVerticalGroup(
             JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JDATOSLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addComponent(jLabel3))
-                    .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(lblusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JDATOSLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JDATOSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblUsuario)
+                                .addComponent(jLabel2))
+                            .addComponent(jLabel1))))
+                .addGap(17, 17, 17)
                 .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(288, Short.MAX_VALUE))
         );
         JDATOS.setLayer(lblFecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
         JDATOS.setLayer(lblusuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        JDATOS.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        JDATOS.setLayer(lblUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         JDATOS.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        JDATOS.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        JDATOS.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenu1.setText("INICIO");
 
@@ -425,7 +427,6 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JMenuItem jJugador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -442,6 +443,7 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jitemEquipo;
     private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblUsuario;
     public static javax.swing.JLabel lblusuario;
     // End of variables declaration//GEN-END:variables
 //private void setContentPane(Imagenfondo desktop) {

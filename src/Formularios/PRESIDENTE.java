@@ -523,7 +523,7 @@ void mostrarDatos(String valor)
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-          int fila = jdPRES.getSelectedRow();
+        /*  int fila = jdPRES.getSelectedRow();
         String cod="";
         cod=jdPRES.getValueAt(fila,0).toString();
         try {
@@ -534,6 +534,7 @@ void mostrarDatos(String valor)
             pst.executeUpdate();
             updateComponets();
             limpiar();
+            cboCampeonato.setSelectedIndex(0);
             }else{
                         JOptionPane.showMessageDialog(null, "Equipo no ELIMINADO!");      
                     } 
@@ -541,6 +542,28 @@ void mostrarDatos(String valor)
             
         } catch (Exception e) {
         }
+        */
+        
+         int fila = jdPRES.getSelectedRow();
+        if(fila<0){
+            JOptionPane.showMessageDialog(null, "Seleccionar El Usuario a ELIMINAR");            
+        }else{
+            int confirmar=JOptionPane.showConfirmDialog(null, "Esta seguro que desea ELIMINAR el Usuario? "); 
+            if(JOptionPane.OK_OPTION==confirmar) {
+                    int celda = (int) jdPRES.getValueAt(fila, 0);
+                    int x = pd.eliminarPresidente(celda);
+                    if(x==1){
+                        JOptionPane.showMessageDialog(null, "Usuario ELIMINADO!");
+                        updateComponets();
+                        limpiar();
+                      cboCampeonato.setSelectedIndex(0);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Usuario no ELIMINADO!");      
+                    }                   
+            } 
+            
+        } 
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped

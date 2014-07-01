@@ -35,6 +35,7 @@ Connection conex;
     DefaultComboBoxModel<Object> combomodel = new DefaultComboBoxModel<>();
     public frmJugadorEquipo() {
         initComponents();
+        setLocation(200, 100);
         cargarCombo();
     }
      final void cargarCombo()
@@ -56,6 +57,7 @@ Connection conex;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         btnGENREP = new javax.swing.JButton();
         Equipo = new javax.swing.JLabel();
         cboEquipo = new javax.swing.JComboBox();
@@ -66,18 +68,23 @@ Connection conex;
         setResizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Reporte"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnGENREP.setText("GENERAR REPORTES");
         btnGENREP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGENREPActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGENREP, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
+        jPanel1.add(btnGENREP, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
 
         Equipo.setText("EQUIPO:");
-        getContentPane().add(Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
+        jPanel1.add(Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        getContentPane().add(cboEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 130, -1));
+        jPanel1.add(cboEquipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 170, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 460, 240));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,5 +113,6 @@ Connection conex;
     private javax.swing.JLabel Equipo;
     private javax.swing.JButton btnGENREP;
     private javax.swing.JComboBox cboEquipo;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

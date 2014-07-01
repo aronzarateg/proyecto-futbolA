@@ -40,7 +40,9 @@ public class frmEquipoInforme extends javax.swing.JInternalFrame {
     DefaultComboBoxModel<Object> combomodel = new DefaultComboBoxModel<>();
     public frmEquipoInforme() {
         initComponents();
+        setLocation(200, 100);
         cargarCombo();
+        btnPDF.setEnabled(false);
     }
          final void cargarCombo()
     {
