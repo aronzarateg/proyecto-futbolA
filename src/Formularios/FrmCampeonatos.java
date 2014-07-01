@@ -258,6 +258,12 @@ Connection conex;
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, -1));
+
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 210, -1));
         getContentPane().add(lblusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 90, 20));
 
@@ -458,6 +464,11 @@ Connection conex;
             JOptionPane.showMessageDialog(null, "JasperReport:"+ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtBuscarKeyTyped
 
     /**
      * @param args the command line arguments
