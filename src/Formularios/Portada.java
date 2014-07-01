@@ -41,6 +41,7 @@ public class Portada extends javax.swing.JFrame {
     private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        clockFace2 = new org.edisoncor.gui.varios.ClockFace();
         btnIngresar = new javax.swing.JButton();
         jDayChooser2 = new com.toedter.calendar.JDayChooser();
         btnSalir = new javax.swing.JButton();
@@ -48,6 +49,7 @@ public class Portada extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jDesktopPane1.add(clockFace2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 70, 200, 270));
 
         btnIngresar.setFont(new java.awt.Font("Angsana New", 0, 24)); // NOI18N
         btnIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/button_ok.gif"))); // NOI18N
@@ -131,6 +133,7 @@ public class Portada extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
+    private org.edisoncor.gui.varios.ClockFace clockFace2;
     private com.toedter.calendar.JDayChooser jDayChooser2;
     private javax.swing.JDesktopPane jDesktopPane1;
     // End of variables declaration//GEN-END:variables

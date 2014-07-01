@@ -57,35 +57,35 @@ equipo.`nombre_equipo`=$P{equipo}]]>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[equipo_Nombre_equipo]]></text>
+				<text><![CDATA[Equipo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="998611c0-d0a8-4575-a1e7-73694b1bab75" mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[campeonato_Nombre_campeonato]]></text>
+				<text><![CDATA[Campeonato]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="d4d0de48-6f6e-4543-956e-7835fa2b4098" mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[presidente_Nombre_pres]]></text>
+				<text><![CDATA[presidente]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="79dc817c-80d1-44ff-8cc5-a300ee222ffa" mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[presidente_Ap_presidente]]></text>
+				<text><![CDATA[Ap.Paterno]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="982c9e8c-b849-4659-b7e9-48707c580067" mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[presidente_Telefono]]></text>
+				<text><![CDATA[Telefono]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

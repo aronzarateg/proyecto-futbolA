@@ -13,7 +13,7 @@ import java.sql.SQLException;
 /**
  *
  * @author Aron//A.......
- */
+ *///ghfdgdfgd
 public class Campeonato
 {
      private int idcampeonato;
