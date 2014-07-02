@@ -24,6 +24,12 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 /**
@@ -49,6 +55,8 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
         btnModificar.setEnabled(false);
         btnEliminar.setEnabled(false);
         btnAgregar.setEnabled(false);
+        btnMostrarDatos.setEnabled(false);
+        btnBuscar.setEnabled(false);
         habilitar();
         
     }
@@ -67,7 +75,7 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
             sql="SELECT * FROM usuario";
         }
         else{
-            sql="SELECT * FROM usuario WHERE usuario='"+valor+"'";
+            sql="SELECT * FROM usuario WHERE usuario LIKE '%"+valor+"%'";//='"+valor+"'";
         }
         String [] datos = new  String [4];
         try {
@@ -117,6 +125,7 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
         btnModificar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnGenrarReporte = new javax.swing.JButton();
 
         jModificar.setText("MODIFICAR");
         jModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +166,7 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
 
         lblFecha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 180, 30));
+        jPanel1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 220, 30));
 
         txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -166,7 +175,7 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
         });
         jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 160, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 480, 160));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 160));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("LISTADO DE USUARIOS"));
 
@@ -213,6 +222,12 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
+
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 230, -1));
 
         btnMostrarDatos.setText("MOSTRAR DATOS");
@@ -272,6 +287,14 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
         jPanel3.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 90, 60));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 580, 120));
+
+        btnGenrarReporte.setText("Generar Reporte");
+        btnGenrarReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenrarReporteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGenrarReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 130, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -504,6 +527,27 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
                
                
     }//GEN-LAST:event_jDatosUsMouseClicked
+
+    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
+        // TODO add your handling code here:
+        mostrarDatos(txtBuscar.getText());
+    }//GEN-LAST:event_txtBuscarKeyReleased
+
+    private void btnGenrarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenrarReporteActionPerformed
+        // TODO add your handling code here:
+        JasperReport jasperReport = null;
+        cn = Conexion.coneccion();
+        //String distrito = cbodistrito.getSelectedItem().toString();
+        try{
+            jasperReport = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportess/report5.jasper"));
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, cn);
+            JasperViewer jasperViewer = new JasperViewer(jasperPrint,false);
+            jasperViewer.setVisible(true);
+            
+        }catch(JRException ex){
+            JOptionPane.showMessageDialog(null, "JasperReport:"+ex);
+        }
+    }//GEN-LAST:event_btnGenrarReporteActionPerformed
     void limpiar(){
     txtCOD.setText(null);
     txtUsuario.setText(null);
@@ -553,14 +597,14 @@ String fec= Cal.get(Cal.DATE)+"/"+(Cal.get(Cal.MONTH)+1)+"/"+Cal.get(Cal.YEAR)+"
 }
 void habilitar()
 {
-    txtBuscar.setEnabled(false);
+    //txtBuscar.setEnabled(false);
     txtCOD.setEnabled(false);
     txtContra.setEnabled(false);
     txtUsuario.setEnabled(false);
 }
 void inabilitar()
 {
-    txtBuscar.setEnabled(true);
+   // txtBuscar.setEnabled(true);
     //txtCOD.setEnabled(true);
     txtContra.setEnabled(true);
     txtUsuario.setEnabled(true);
@@ -569,6 +613,7 @@ void inabilitar()
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGenrarReporte;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnMostrarDatos;
     private javax.swing.JButton btnNuevo;

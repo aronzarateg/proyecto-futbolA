@@ -86,7 +86,7 @@ public class Logueo extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jlogueodeskotpane = new javax.swing.JDesktopPane();
         btnIr = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         JPas = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         txtUs = new javax.swing.JTextField();
@@ -111,10 +111,10 @@ public class Logueo extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("SALIR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -146,7 +146,7 @@ public class Logueo extends javax.swing.JFrame {
                         .addGap(182, 182, 182)
                         .addComponent(btnIr, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         jlogueodeskotpaneLayout.setVerticalGroup(
@@ -163,10 +163,10 @@ public class Logueo extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jlogueodeskotpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnIr, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jlogueodeskotpane.setLayer(btnIr, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jlogueodeskotpane.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jlogueodeskotpane.setLayer(btnSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jlogueodeskotpane.setLayer(JPas, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jlogueodeskotpane.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jlogueodeskotpane.setLayer(txtUs, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -204,11 +204,11 @@ public class Logueo extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_btnIrActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         Portada p = new Portada();
         p.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 /*
      class TimerListener implements ActionListener{
        
@@ -300,7 +300,7 @@ public class Logueo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField JPas;
     private javax.swing.JButton btnIr;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

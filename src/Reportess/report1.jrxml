@@ -42,7 +42,22 @@ campeonato.`Nombre_campeonato`=$P{dist}]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="13"/>
+		<band height="44">
+			<staticText>
+				<reportElement uuid="2eec46d4-630a-4e6f-a79f-4091150bc00c" mode="Opaque" x="0" y="14" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Campeonato]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="c07cc541-42c3-410a-8f75-5301c0095eee" x="153" y="14" width="138" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campeonato_Nombre_campeonato}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="21">
@@ -57,14 +72,7 @@ campeonato.`Nombre_campeonato`=$P{dist}]]>
 				<text><![CDATA[Equipo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2eec46d4-630a-4e6f-a79f-4091150bc00c" mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Campeonato]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="d19f290e-ac61-4aa1-ad70-66120f758500" mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
+				<reportElement uuid="d19f290e-ac61-4aa1-ad70-66120f758500" mode="Opaque" x="167" y="1" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -92,25 +100,18 @@ campeonato.`Nombre_campeonato`=$P{dist}]]>
 				<textFieldExpression><![CDATA[$F{equipo_Nombre_equipo}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement uuid="c07cc541-42c3-410a-8f75-5301c0095eee" x="138" y="0" width="138" height="20"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{campeonato_Nombre_campeonato}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement uuid="3d483141-f5aa-43d3-981d-53f0b9553f3e" x="276" y="0" width="138" height="20"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{campeonato_Fecha_inicio}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
 				<reportElement uuid="619f4042-c5ec-4606-beff-3d1a0bd0a5fa" x="414" y="0" width="138" height="20"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{campeonato_Fecha_fin}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="3d483141-f5aa-43d3-981d-53f0b9553f3e" x="167" y="0" width="138" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campeonato_Fecha_inicio}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

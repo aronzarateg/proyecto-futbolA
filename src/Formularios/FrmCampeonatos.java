@@ -365,7 +365,7 @@ Connection conex;
     private void jModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jModificarActionPerformed
         btnModificar.setEnabled(true); 
         txtCodigo.setEnabled(false);
-       // String FECFF=(((JTextField)jdFF.getDateEditor().getUiComponent()).setText());
+       // String FECFF=(((JTextField)jdFF.getDateEditor().getUiComponent()).setText(d));
         int fila= jDatosCom.getSelectedRow();
         if(fila>=0)
         {

@@ -66,4 +66,23 @@ public class PartidoDAO
         }
     return res;
     }
+   public int  retornarIDPartido(String cate)
+     {
+         int idcam=0;
+         sql="SELECT *FROM partido WHERE Fecha_partido='"+cate+"'";
+         
+         try {
+             cx = Conexion.coneccion();
+            st = cx.createStatement();
+            rs = st.executeQuery(sql);
+            //cx.close();
+            while(rs.next())
+            {
+                idcam=rs.getInt("idPartido");
+            }
+         } catch (Exception e) {
+             JOptionPane.showMessageDialog(null,"ERROR"+e);
+         }
+         return idcam;
+     }
 }

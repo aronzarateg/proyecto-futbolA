@@ -449,7 +449,7 @@ DefaultComboBoxModel<Object> modelocombo = new DefaultComboBoxModel<>();
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-void listarPresidente(){
+   void listarPresidente(){
     listaPartido =part.listarPartido();
     model = (DefaultTableModel) jDPartido.getModel();
         Object[] usu = new Object[6];

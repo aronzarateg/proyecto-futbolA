@@ -59,6 +59,8 @@ public class FormEquipo extends javax.swing.JInternalFrame {
         txtBuscar.setEnabled(false);
         cargarCampeonato();
         inabilitar();
+        //BuscarEquipo("");
+        //buscar("");
     }
          final void  cargarCampeonato()
     {
@@ -71,6 +73,8 @@ public class FormEquipo extends javax.swing.JInternalFrame {
         }
         cboEquipo.setModel(modelocombo);
     }
+         
+        
          //______________________________------------------------------------
        
          //---------------------------------------------------------------------
@@ -178,6 +182,12 @@ public class FormEquipo extends javax.swing.JInternalFrame {
         jPanel1.add(txtidCampeonato, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 70, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 450, 270));
+
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 380, -1));
 
         btnBuscar.setText("BUSCAR");
@@ -434,6 +444,13 @@ public class FormEquipo extends javax.swing.JInternalFrame {
         if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
     }//GEN-LAST:event_txtN_EstadioKeyTyped
 
+    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
+        // TODO add your handling code here:
+       //buscar(txtBuscar.getText());
+        //ed.buscarEquipo(txtBuscar.getText());
+        
+    }//GEN-LAST:event_txtBuscarKeyReleased
+
     void listarEquipo(){
     listaequipo =ed.listarEquipo();
     model = (DefaultTableModel) jtDatos.getModel();
@@ -475,7 +492,7 @@ void abilitar()
     txtCodigo.setEnabled(false);
         txtNombre.setEnabled(true);
         txtN_Estadio.setEnabled(true);
-        txtBuscar.setEnabled(true);
+        //txtBuscar.setEnabled(true);
         txtCiudad.setEnabled(true);
         cboEquipo.setEnabled(true); 
         //jFFundacion.setEnabled(true);
