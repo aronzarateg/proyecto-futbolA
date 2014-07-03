@@ -395,7 +395,25 @@ public class FromJugador extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-      int ideq = Integer.parseInt(txtidEquipo.getText());
+      if(cboequipo.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null,"Deve Elegir el equipo a  pertenercer");
+            cboequipo.requestFocus();
+        }else if (txtNombre.getText().equals("")){
+        JOptionPane.showMessageDialog(null,"Deve ingresar el Nombre del jugador para continuar");
+            txtNombre.requestFocus();
+       
+       }else if (txtPaterno.getText().equals("")) {
+           JOptionPane.showMessageDialog(null,"Deve ingresar el Apellido Paterno para continuar");
+            txtPaterno.requestFocus();
+       }else if(txtMaterno1.getText().equals("")){
+        JOptionPane.showMessageDialog(null,"Deve ingresar el Apellido Materno para continuar");
+            txtMaterno1.requestFocus();
+       }else if(txtPoscision.getText().equals("")){
+           JOptionPane.showMessageDialog(null,"Deve ingresar la posicion para continuar");
+            txtPoscision.requestFocus();
+       }else{
+        
+        int ideq = Integer.parseInt(txtidEquipo.getText());
         String nombre = txtNombre.getText();
         String paterno= txtPaterno.getText();
         String materno= txtMaterno1.getText();
@@ -412,6 +430,7 @@ public class FromJugador extends javax.swing.JInternalFrame {
         }else{
         JOptionPane.showMessageDialog(this, "No se guardo");
         }
+       }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

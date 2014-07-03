@@ -271,7 +271,7 @@ void mostrarDatos(String valor)
         jLabel1.setText("Campeonato:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
-        cboSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "F" }));
+        cboSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select", "M", "F" }));
         jPanel1.add(cboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 50, -1));
 
         jLabel2.setText("SEXO:");
@@ -398,9 +398,34 @@ void mostrarDatos(String valor)
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-        String car= txtNombre.getText();
-         if(!car.equals(""))//si es diferente de espacio que le exporte un mensaje.
-       {
+                if(txtNombre.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Deve Ingresar unn Nombre para continuar");
+            txtNombre.requestFocus();
+            }else if (txtPaterno.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Deve ingresar el Apellido Paterno para continuar");
+                txtPaterno.requestFocus();
+
+           }else if (txtMaterno1.getText().equals("")) {
+               JOptionPane.showMessageDialog(null,"Deve ingresar el Apellido Materno para continuar");
+                txtMaterno1.requestFocus();
+           }else if(cboEquipo.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null,"Deve Elegir el equipo al que pertenece");
+                cboEquipo.requestFocus();
+           }else if(cboCampeonato.getSelectedIndex()==0){
+               JOptionPane.showMessageDialog(null,"Deve Elegir Al campeonato  al que pertenece");
+                cboCampeonato.requestFocus();
+           }else if (txtDNI.getText().equals("")){
+               JOptionPane.showMessageDialog(null,"Deve ingresar el DNI para continuar");
+                txtDNI.requestFocus();
+           }else if(cboSexo.getSelectedIndex()==0){
+               JOptionPane.showMessageDialog(null,"Deve Elegir el Sexo");
+                cboSexo.requestFocus();
+           }else if (txtTelefono.getText().equals("")) {
+               JOptionPane.showMessageDialog(null,"Deve ingresar el Telefono  para continuar");
+                txtTelefono.requestFocus();
+           }else {
+        
+                    
                 int ide = Integer.parseInt(txtIDEquipo.getText());
                  int idc= Integer.parseInt(txtIDCampeonato.getText());
                 String nombre = txtNombre.getText();
@@ -423,10 +448,8 @@ void mostrarDatos(String valor)
                 }else{
                 JOptionPane.showMessageDialog(this, "No se guardo");
                 }
-         }else{
-         JOptionPane.showMessageDialog(null,"ingrese El nombre  Para continuar.","Error",JOptionPane.ERROR_MESSAGE);
-           txtNombre.requestFocus();
-         }
+           }
+         
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

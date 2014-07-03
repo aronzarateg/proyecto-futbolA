@@ -51,12 +51,14 @@ public class FormEquipo extends javax.swing.JInternalFrame {
         
         setLocation(200, 10);
         listarEquipo();
+        this.jFFundacion.setEnabled(false);
+        this.jFFundacion.getCalendarButton().setEnabled(true);
         //botones al iniciar  bloqueados
         btnEliminar.setEnabled(false);
         btnModificar.setEnabled(false);
         btnAgregar.setEnabled(false);
         btnBuscar.setEnabled(false);
-        txtBuscar.setEnabled(false);
+        //txtBuscar.setEnabled(false);
         cargarCampeonato();
         inabilitar();
         //BuscarEquipo("");
@@ -64,7 +66,7 @@ public class FormEquipo extends javax.swing.JInternalFrame {
     }
          final void  cargarCampeonato()
     {
-        modelocombo.addElement("seleccionar categoria");
+        modelocombo.addElement("seleccionar campeonato");
         cboEquipo.setModel(modelocombo);
         listacampeonato=cd.listarCampeonatos();
         for(int i =0;i<listacampeonato.size();i++)
@@ -269,6 +271,7 @@ public class FormEquipo extends javax.swing.JInternalFrame {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
         abilitar();
+        txtNombre.requestFocus();
         btnEliminar.setEnabled(false);
         btnModificar.setEnabled(false);
         btnAgregar.setEnabled(true);
@@ -280,9 +283,22 @@ public class FormEquipo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String car= txtNombre.getText();
+       /* String car= txtNombre.getText();
          if(!car.equals(""))//si es diferente de espacio que le exporte un mensaje.
-       { 
+       {*/ if(txtNombre.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Deve ingresar un NOmbre para continuar");
+            txtNombre.requestFocus();
+        }else if (txtN_Estadio.getText().equals("")){
+        JOptionPane.showMessageDialog(null,"Deve ingresar el NOmbre del Estadio para continuar");
+            txtN_Estadio.requestFocus();
+       
+       }else if (txtCiudad.getText().equals("")) {
+           JOptionPane.showMessageDialog(null,"Deve ingresar el Nombre de la ciudad de origren del equipo");
+            txtCiudad.requestFocus();
+       }else if(cboEquipo.getSelectedIndex()==0){
+        JOptionPane.showMessageDialog(null,"Deve Elelir el campeonato en el cual participa");
+            cboEquipo.requestFocus();
+       }else{  
         int idc = Integer.parseInt(txtidCampeonato.getText());
         String nombre = txtNombre.getText();
         String estadio= txtN_Estadio.getText();
@@ -299,10 +315,12 @@ public class FormEquipo extends javax.swing.JInternalFrame {
         }else{
         JOptionPane.showMessageDialog(this, "No se guardo");
         }
-         }else{
+         /*}else{
          JOptionPane.showMessageDialog(null,"ingrese El nombre del equipo Para continuar.","Error",JOptionPane.ERROR_MESSAGE);
            txtNombre.requestFocus();
          }
+        */
+       }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -310,8 +328,8 @@ public class FormEquipo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txtCiudadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCiudadKeyTyped
-         char a=evt.getKeyChar();
-        if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
+        // char a=evt.getKeyChar();
+        //if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
     }//GEN-LAST:event_txtCiudadKeyTyped
 
     private void jtDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDatosMouseClicked
@@ -434,20 +452,19 @@ public class FormEquipo extends javax.swing.JInternalFrame {
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         // TODO add your handling code here:
-        char a=evt.getKeyChar();
-        if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
+        //char a=evt.getKeyChar();
+        //if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtN_EstadioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtN_EstadioKeyTyped
         // TODO add your handling code here:
-        char a=evt.getKeyChar();
-        if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
+        //char a=evt.getKeyChar();
+        //if((a<'a' || a>'z')&&(a<'A')|a>'Z')evt.consume();
     }//GEN-LAST:event_txtN_EstadioKeyTyped
 
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
-        // TODO add your handling code here:
-       //buscar(txtBuscar.getText());
-        //ed.buscarEquipo(txtBuscar.getText());
+        String valor = txtBuscar.getText();
+        ed.BuscarEquipo(valor);
         
     }//GEN-LAST:event_txtBuscarKeyReleased
 
@@ -482,10 +499,10 @@ void inabilitar()
         txtCodigo.setEnabled(false);
         txtNombre.setEnabled(false);
         txtN_Estadio.setEnabled(false);
-        txtBuscar.setEnabled(false);
+        //txtBuscar.setEnabled(false);
         txtCiudad.setEnabled(false);
         cboEquipo.setEnabled(false); 
-        jFFundacion.setEnabled(false);
+       /// jFFundacion.setEnabled(false);
 }
 void abilitar()
 {

@@ -319,7 +319,7 @@ Connection conex;
          JOptionPane.showMessageDialog(null,"ingrese El nombre del equipo Para continuar.","Error",JOptionPane.ERROR_MESSAGE);
            txtNombre.requestFocus();
          }
-    
+    //
     }//GEN-LAST:event_btnnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

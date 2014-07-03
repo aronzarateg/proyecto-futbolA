@@ -48,7 +48,7 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
     public FrmUsuario() {
         initComponents();
         mostrarFechaHora();
-        setLocation(350, 50);
+        setLocation(320, 20);
       //listarUser();
        mostrarDatos("");
         txtCOD.setEnabled(false);
@@ -248,7 +248,7 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, 60));
+        jPanel3.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 60));
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ELIMINAR.gif"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
@@ -257,7 +257,7 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, 60));
+        jPanel3.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, -1, 60));
 
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MODIFICAR.gif"))); // NOI18N
         btnModificar.setText("MODIFICAR");
@@ -266,16 +266,16 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
                 btnModificarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, 60));
+        jPanel3.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, 60));
 
-        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/NUEVO.gif"))); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/document_64.png"))); // NOI18N
         btnNuevo.setText("NUEVO");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoActionPerformed(evt);
             }
         });
-        jPanel3.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 60));
+        jPanel3.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 150, 60));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SALIR.gif"))); // NOI18N
         btnSalir.setText("SALIR");
@@ -284,9 +284,9 @@ public class FrmUsuario extends javax.swing.JInternalFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel3.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 90, 60));
+        jPanel3.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 90, 60));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 580, 120));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 600, 170));
 
         btnGenrarReporte.setText("Generar Reporte");
         btnGenrarReporte.addActionListener(new java.awt.event.ActionListener() {

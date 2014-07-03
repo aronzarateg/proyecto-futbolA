@@ -68,6 +68,21 @@ public class EquipoDAO
         
         return lista;
     }
+    public int BuscarEquipo(String valor)
+    {
+        ArrayList<Equipo> list = new ArrayList();
+        sql="SELECT * FROM equipo WHERE Nombre_equipo LIKE '%"+valor+"%'";
+        try {
+            cx = Conexion.coneccion();
+            st = cx.createStatement();
+            rs = st.executeQuery(sql);
+            while(rs.next()){
+            list.add(Equipo.loadEquipo(rs));
+            }
+        } catch (Exception e) {
+        }
+        return res;
+    }
    
      public int registrarEquipo(int idcampeonato,String nombre, String estadio,String anFundacion,String ciudad ){
          try {
